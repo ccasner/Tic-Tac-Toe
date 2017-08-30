@@ -1,2 +1,17 @@
 $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap';
+
+$black: #000;
+$font-color: #000;
+$white: #FFF;
+
+body {
+  background-color: $white;
+  color: $font-color;
+}
+
+.box {
+  border: 1px solid $black;
+  height: 70px;
+  width: 70px;
+}
