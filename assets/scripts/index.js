@@ -12,3 +12,9 @@ $(() => {
 
 // use require without a reference to ensure a file is bundled
 // require('./example')
+
+const gameEvents = require('./game/events')
+
+$(() => {
+  $('.grid').find('.element').on('click', gameEvents.move)
+})
