@@ -1,5 +1,6 @@
 'use strict'
 const store = require('../store')
+const api = require('../auth/api')
 
 let gameBoard = [
   '', '', '',
@@ -29,17 +30,24 @@ const userMove = function () {
     $('#message').text('Play Again?')
   } else if ($(this).text() === '') {
     if (count % 2 === 0) {
-      value = $(this).text('X')
-      gameBoard[index] = 'X'
+      $(this).text('X')
+      value = 'X'
+      gameBoard[index] = value
     } else if ($(this).text() === '') {
-      value = $(this).text('O')
-      gameBoard[index] = 'O'
+      $(this).text('O')
+      value = 'O'
+      gameBoard[index] = value
     }
   }
   store.game.cells = gameBoard
   checkForWinner()
+  api.updateGame(index, value, over)
+  console.log(index)
+  console.log(value)
+  console.log(over)
   console.log(count)
   console.log(gameBoard)
+  console.log(store.game)
   return ++count
 }
 
