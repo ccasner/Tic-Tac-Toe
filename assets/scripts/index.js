@@ -21,4 +21,5 @@ $(() => {
   $('.grid').find('.element').on('click', gameEvents.userOMove)
   $('.grid').find('.element').on('click', gameEvents.checkForWinner)
   $('#sign-up').on('submit', authEvents.onSignUp)
+  $('#sign-in').on('submit', authEvents.onSignIn)
 })
