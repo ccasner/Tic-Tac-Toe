@@ -53,13 +53,13 @@
 #   }'
 
 # ID=506 TOKEN="BAhJIiUxNmYwNDM4YzQ2MWUxNzQwYzFiZDY4MTc5OTJkNWM5MwY6BkVG--e31a64fed7c5a21c3dcc7d663ebcaacc3d2abc0e" sh assets/scripts/auth/json.sh
-API="${API_ORIGIN:-http://tic-tac-toe.wdibos.com}"
-URL_PATH="/sign-out/$ID"
-
-curl "${API}${URL_PATH}" \
-  --include \
-  --request DELETE \
-  --header "Authorization: Token token=$TOKEN" \
-  --header "Content-Type: application/json" \
-
-echo
+# API="${API_ORIGIN:-http://tic-tac-toe.wdibos.com}"
+# URL_PATH="/sign-out/$ID"
+#
+# curl "${API}${URL_PATH}" \
+#   --include \
+#   --request DELETE \
+#   --header "Authorization: Token token=$TOKEN" \
+#   --header "Content-Type: application/json" \
+#
+# echo
