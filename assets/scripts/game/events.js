@@ -19,8 +19,10 @@ const winningBoards = [
 
 let count = 0
 let winner = ''
-
+let over = false
 const userMove = function () {
+  // let value
+  // let index
   if (winner !== '') {
     $('#message').text('Play Again?')
   } else if ($(this).text() === '') {
@@ -32,6 +34,7 @@ const userMove = function () {
       gameBoard[$(this).attr('id')] = 'O'
     }
   }
+  // store.game.cells = gameBoard
   checkForWinner()
   console.log(count)
   console.log(gameBoard)
@@ -54,8 +57,9 @@ const checkMatch = function (a, b, c) {
   } else if (count === 8 && winner === '') {
     $('#message').text('DRAW!')
   }
+  // over = true
   return winner
-}
+} // if winner !== '' || count === 8 store.game.over =true
 
 const checkWinner = function () {
   let a = 0
@@ -75,6 +79,7 @@ const clearBoard = function () {
   winner = ''
   $('.grid').find('.element').text('')
   $('#message').text('')
+  over = false
 }
 
 const newGame = function (event) {

@@ -19,7 +19,7 @@ const signIn = function (data) {
 }
 const changePassword = function (data) {
   return $.ajax({
-    url: config.apiOrigin + '/change-password/' + store.user.id,
+    url: config.apiOrigin + '/change-password/' + store.user.id, // store.game.id
     method: 'PATCH',
     headers: {
       Authorization: 'Token token=' + store.user.token
@@ -27,6 +27,27 @@ const changePassword = function (data) {
     data
   })
 }
+const startNewGame = function () {
+  return $.ajax({
+    url: config.apiOrigin + '/games',
+    method: 'POST',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    data: '{}'
+  })
+}
+// updateGame = function (index, value, over)
+// data :
+// {
+//   "game": {
+//     "cell": {
+//       "index": index,
+//       "value": value
+//     },
+//     "over": over
+//   }
+// }
 const signOut = function () {
   return $.ajax({
     url: config.apiOrigin + '/sign-out/' + store.user.id,
@@ -41,5 +62,6 @@ module.exports = {
   signUp,
   signIn,
   changePassword,
-  signOut
+  signOut,
+  startNewGame
 }
