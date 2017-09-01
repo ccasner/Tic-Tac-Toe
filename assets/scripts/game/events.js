@@ -1,4 +1,5 @@
 'use strict'
+const store = require('../store')
 
 let gameBoard = [
   '', '', '',
@@ -20,21 +21,22 @@ const winningBoards = [
 let count = 0
 let winner = ''
 let over = false
+
 const userMove = function () {
-  // let value
-  // let index
+  let value = ''
+  const index = $(this).attr('id')
   if (winner !== '') {
     $('#message').text('Play Again?')
   } else if ($(this).text() === '') {
     if (count % 2 === 0) {
-      $(this).text('X')
-      gameBoard[$(this).attr('id')] = 'X'
+      value = $(this).text('X')
+      gameBoard[index] = 'X'
     } else if ($(this).text() === '') {
-      $(this).text('O')
-      gameBoard[$(this).attr('id')] = 'O'
+      value = $(this).text('O')
+      gameBoard[index] = 'O'
     }
   }
-  // store.game.cells = gameBoard
+  store.game.cells = gameBoard
   checkForWinner()
   console.log(count)
   console.log(gameBoard)
@@ -57,9 +59,13 @@ const checkMatch = function (a, b, c) {
   } else if (count === 8 && winner === '') {
     $('#message').text('DRAW!')
   }
-  // over = true
+  if (winner !== '' || count === 8) {
+    store.game.over = true
+  }
+  over = true
+  console.log(store.game)
   return winner
-} // if winner !== '' || count === 8 store.game.over =true
+}
 
 const checkWinner = function () {
   let a = 0

@@ -37,8 +37,14 @@ const startNewGame = function () {
     data: '{}'
   })
 }
-// updateGame = function (index, value, over)
-// data :
+const updateGame = function (index, value, over) {
+  return $.ajax({
+    url: config.apiOrigin + '/games/' + store.game.id,
+    method: 'PATCH',
+    data
+  })
+}
+
 // {
 //   "game": {
 //     "cell": {
@@ -48,6 +54,7 @@ const startNewGame = function () {
 //     "over": over
 //   }
 // }
+
 const signOut = function () {
   return $.ajax({
     url: config.apiOrigin + '/sign-out/' + store.user.id,
