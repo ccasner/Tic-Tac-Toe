@@ -16,8 +16,7 @@ $(() => {
 const gameEvents = require('./game/events')
 
 $(() => {
-  $('.grid').find('.element').on('click', gameEvents.userXMove)
-  $('.grid').find('.element').on('click', gameEvents.userOMove)
-  $('.grid').find('.element').on('click', gameEvents.checkForWinner)
+  $('.grid').find('.element').on('click', gameEvents.userMove)
+  // $('.grid').find('.element').on('click', gameEvents.checkForWinner)
   $('#play-again').on('submit', gameEvents.newGame)
 })

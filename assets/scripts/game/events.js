@@ -18,37 +18,28 @@ const winningBoards = [
 ]
 
 let count = 0
-
-const userXMove = function () {
-  if ($(this).text() === '' && count % 2 === 0) {
-    $(this).text('X')
-    count++
-    console.log(count)
-    gameBoard[$(this).attr('id')] = 'X'
-    console.log(gameBoard)
-    checkForWinner()
-  } else if ($(this).text() !== '') {
-    $('#message').text('Must play empty space')
-  }
-  return count
-}
-
-const userOMove = function () {
-  if ($(this).text() === '' && count % 2 !== 0) {
-    $(this).text('O')
-    count++
-    console.log(count)
-    gameBoard[$(this).attr('id')] = 'O'
-    console.log(gameBoard)
-    checkForWinner()
-  }
-  return count
-}
-
 let winner = ''
 
+const userMove = function () {
+  if (winner !== '') {
+    $('#message').text('Play Again?')
+  } else if ($(this).text() === '') {
+    if (count % 2 === 0) {
+      $(this).text('X')
+      gameBoard[$(this).attr('id')] = 'X'
+    } else if ($(this).text() === '') {
+      $(this).text('O')
+      gameBoard[$(this).attr('id')] = 'O'
+    }
+  }
+  checkForWinner()
+  console.log(count)
+  console.log(gameBoard)
+  return ++count
+}
+
 const checkForWinner = function () {
-  if (count >= 5 && count <= 9) {
+  if (count >= 4 && count <= 8) {
     checkWinner()
   }
 }
@@ -60,12 +51,12 @@ const checkMatch = function (a, b, c) {
   } else if (gameBoard[a] === 'O' && gameBoard[b] === 'O' && gameBoard[c] === 'O') {
     winner = 'O'
     $('#message').text(winner + ' Wins!')
-  } else if (count === 9 && winner === '') {
+  } else if (count === 8 && winner === '') {
     $('#message').text('DRAW!')
   }
-  if (winner !== '' || count === 9) {
-    $('.element').off('click')
-  }
+  // if (winner !== '' || count === 8) {
+  //   $('.element').off('click')
+  // }
   return winner
 }
 
@@ -86,6 +77,7 @@ const clearBoard = function () {
   gameBoard = ['', '', '', '', '', '', '', '', '']
   winner = ''
   $('.grid').find('.element').text('')
+  $('#message').text('')
 }
 
 const newGame = function (event) {
@@ -94,8 +86,7 @@ const newGame = function (event) {
 }
 
 module.exports = {
-  userXMove,
-  userOMove,
+  userMove,
   checkForWinner,
   newGame
 }
