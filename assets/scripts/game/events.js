@@ -54,9 +54,6 @@ const checkMatch = function (a, b, c) {
   } else if (count === 8 && winner === '') {
     $('#message').text('DRAW!')
   }
-  // if (winner !== '' || count === 8) {
-  //   $('.element').off('click')
-  // }
   return winner
 }
 
