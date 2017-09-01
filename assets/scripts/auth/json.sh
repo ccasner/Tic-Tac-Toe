@@ -21,17 +21,34 @@
 #   }'
 
 # EMAIL="user1" PASSWORD="user1" sh assets/scripts/auth/json.sh
+# API="${API_ORIGIN:-http://tic-tac-toe.wdibos.com}"
+# URL_PATH="/sign-in"
+#
+# curl "${API}${URL_PATH}" \
+#   --include \
+#   --request POST \
+#   --header "Content-Type: application/json" \
+#   --data '{
+#     "credentials": {
+#       "email": "'"${EMAIL}"'",
+#       "password": "'"${PASSWORD}"'"
+#     }
+#   }'
+
+# "id":506,"email":"user1","token":"BAhJIiUxNmYwNDM4YzQ2MWUxNzQwYzFiZDY4MTc5OTJkNWM5MwY6BkVG--e31a64fed7c5a21c3dcc7d663ebcaacc3d2abc0e"
+# ID=506 OLD_PASSWORD="user1" NEW_PASSWORD="user_1" TOKEN="BAhJIiUxNmYwNDM4YzQ2MWUxNzQwYzFiZDY4MTc5OTJkNWM5MwY6BkVG--e31a64fed7c5a21c3dcc7d663ebcaacc3d2abc0e" sh assets/scripts/auth/json.sh
 API="${API_ORIGIN:-http://tic-tac-toe.wdibos.com}"
-URL_PATH="/sign-in"
+URL_PATH="/change-password/${ID}"
 
 curl "${API}${URL_PATH}" \
   --include \
-  --request POST \
+  --request PATCH \
+  --header "Authorization: Token token=$TOKEN" \
   --header "Content-Type: application/json" \
   --data '{
-    "credentials": {
-      "email": "'"${EMAIL}"'",
-      "password": "'"${PASSWORD}"'"
+    "passwords": {
+      "old": "'"${OLD_PASSWORD}"'",
+      "new": "'"${NEW_PASSWORD}"'"
     }
   }'
 
