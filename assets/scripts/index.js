@@ -2,6 +2,7 @@
 
 const setAPIOrigin = require('../../lib/set-api-origin')
 const config = require('./config')
+const authEvents = require('./auth/events')
 
 $(() => {
   setAPIOrigin(location, config)
@@ -19,4 +20,5 @@ $(() => {
   $('.grid').find('.element').on('click', gameEvents.userXMove)
   $('.grid').find('.element').on('click', gameEvents.userOMove)
   $('.grid').find('.element').on('click', gameEvents.checkForWinner)
+  $('#sign-up').on('submit', authEvents.onSignUp)
 })
