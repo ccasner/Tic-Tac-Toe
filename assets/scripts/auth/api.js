@@ -55,6 +55,24 @@ const updateGame = function (index, value, over) {
     }
   })
 }
+const getGames = function () {
+  return $.ajax({
+    url: config.apiOrigin + '/games',  // + '[?over=]',
+    method: 'GET',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+// const getGame = function (data) {
+//   return $.ajax({
+//     url: config.apiOrigin + '/games/' + store.game.id,
+//     method: 'GET',
+//     headers: {
+//       Authorization: 'Token token=' + store.user.token
+//     }
+//   })
+// }
 
 const signOut = function () {
   return $.ajax({
@@ -72,5 +90,6 @@ module.exports = {
   changePassword,
   signOut,
   startNewGame,
-  updateGame
+  updateGame,
+  getGames
 }

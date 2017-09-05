@@ -43,6 +43,24 @@ const signOutFailure = function (error) {
   console.log(error)
   $('#message2').text('Something went wrong, try again!')
 }
+const getGamesSuccess = function (data) {
+  store.games = data.games
+  console.log(store.games)
+  $('#message3').text(JSON.stringify(store.games))
+}
+const getGamesFailure = function (error) {
+  console.log(error)
+  $('#message3').text('Something went wrong, try again!')
+}
+const getGameSuccess = function (data) {
+  store.games = data.games
+  console.log(store.games)
+  $('#message3').text(JSON.stringify(store.games))
+}
+const getGameFailure = function (error) {
+  console.log(error)
+  $('#message3').text('Something went wrong, try again!')
+}
 
 module.exports = {
   signUpSuccess,
@@ -54,5 +72,9 @@ module.exports = {
   signOutSuccess,
   signOutFailure,
   newGameSuccess,
-  newGameFailure
+  newGameFailure,
+  getGamesSuccess,
+  getGamesFailure,
+  getGameSuccess,
+  getGameFailure
 }

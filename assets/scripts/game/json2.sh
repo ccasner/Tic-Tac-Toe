@@ -1,4 +1,4 @@
-# EMAIL="user1" PASSWORD="user_1" sh assets/scripts/game/json.sh
+# EMAIL="user1" PASSWORD="user_1" sh assets/scripts/game/json2.sh
 # API="${API_ORIGIN:-http://tic-tac-toe.wdibos.com}"
 # URL_PATH="/sign-in"
 #
@@ -25,4 +25,11 @@
 #   --header "Authorization: Token token=$TOKEN" \
 #   --data '{}'
 
+# TOKEN="BAhJIiVhMWZhZmNlNzdmMGRmYzhhYWRkYWNmYjllMGExZThjZAY6BkVG--d99f37af7b6007e63bcd90c7da3c3847335e5650" sh assets/scripts/game/json2.sh
+# curl --include --request GET "http://tic-tac-toe.wdibos.com/games" \
+# --header "Authorization: Token token=$TOKEN"
+
+# ID=506 TOKEN="BAhJIiU2Y2Y5YzA0ZWVmM2M3MzZiZGNkMGI0ZTMwZmExMDJiMQY6BkVG--27650fd5fa39190048b0ded30a7d3cc4efe374bf" sh assets/scripts/game/json2.sh
+# curl --include --request GET "http://tic-tac-toe.wdibos.com/games/$ID" \
+# --header "Authorization: Token token=$TOKEN"
 echo
