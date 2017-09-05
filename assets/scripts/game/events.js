@@ -1,4 +1,6 @@
 'use strict'
+const store = require('../store')
+const api = require('../auth/api')
 
 let gameBoard = [
   '', '', '',
@@ -19,22 +21,33 @@ const winningBoards = [
 
 let count = 0
 let winner = ''
+let over = false
 
 const userMove = function () {
+  let value = ''
+  const index = $(this).attr('id')
   if (winner !== '') {
     $('#message').text('Play Again?')
   } else if ($(this).text() === '') {
     if (count % 2 === 0) {
       $(this).text('X')
-      gameBoard[$(this).attr('id')] = 'X'
+      value = 'X'
+      gameBoard[index] = value
     } else if ($(this).text() === '') {
       $(this).text('O')
-      gameBoard[$(this).attr('id')] = 'O'
+      value = 'O'
+      gameBoard[index] = value
     }
   }
+  store.game.cells = gameBoard
   checkForWinner()
+  api.updateGame(index, value, over)
+  console.log(index)
+  console.log(value)
+  console.log(over)
   console.log(count)
   console.log(gameBoard)
+  console.log(store.game)
   return ++count
 }
 
@@ -54,9 +67,12 @@ const checkMatch = function (a, b, c) {
   } else if (count === 8 && winner === '') {
     $('#message').text('DRAW!')
   }
-  // if (winner !== '' || count === 8) {
-  //   $('.element').off('click')
-  // }
+  if (winner !== '' || count === 8) {
+    store.game.over = true
+    $('#play-again').show()
+  }
+  over = true
+  console.log(store.game)
   return winner
 }
 
@@ -78,6 +94,8 @@ const clearBoard = function () {
   winner = ''
   $('.grid').find('.element').text('')
   $('#message').text('')
+  $('#play-again').hide()
+  over = false
 }
 
 const newGame = function (event) {
@@ -88,5 +106,6 @@ const newGame = function (event) {
 module.exports = {
   userMove,
   checkForWinner,
-  newGame
+  newGame,
+  clearBoard
 }
