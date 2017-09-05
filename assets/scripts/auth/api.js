@@ -28,6 +28,7 @@ const changePassword = function (data) {
   })
 }
 const startNewGame = function () {
+  console.log('after')
   return $.ajax({
     url: config.apiOrigin + '/games',
     method: 'POST',
@@ -45,12 +46,12 @@ const updateGame = function (index, value, over) {
       Authorization: 'Token token=' + store.user.token
     },
     data: {
-      "game": {
-        "cell": {
-          "index": index,
-          "value": value
+      'game': {
+        'cell': {
+          'index': index,
+          'value': value
         },
-        "over": over
+        'over': over
       }
     }
   })

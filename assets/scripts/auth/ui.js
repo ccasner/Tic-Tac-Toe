@@ -1,6 +1,5 @@
 'use strict'
 const store = require('../store')
-const gameEvents = require('../game/events')
 
 const signUpSuccess = function (data) {
   console.log(data)
@@ -9,11 +8,12 @@ const signUpSuccess = function (data) {
 }
 const signUpFailure = function (error) {
   console.log(error)
-  $('#message2').text('Something went wrong, try again!')
+  $('#message2').text('Incorrect username or password, try again!').show()
 }
 const signInSuccess = function (data) {
   console.log(data)
   $('#message2').text('Sign In Successful!')
+  $('#message2').delay(1000).fadeOut('slow')
   store.user = data.user
   $('#sign-in').hide()
   $('#sign-up').hide()
@@ -24,25 +24,26 @@ const signInSuccess = function (data) {
 }
 const signInFailure = function (error) {
   console.log(error)
-  $('#message2').text('Something went wrong, try again!')
+  $('#message2').text('Incorrect username or password, try again!').show()
 }
 const newGameSuccess = function (data) {
-  console.log(data)
+  console.log('new game is', data)
   store.game = data.game
   $('#start-game').hide()
   $('.grid').show()
 }
 const newGameFailure = function (error) {
-  console.log(error)
+  console.log('new game error is', error)
   $('#message2').text('Please Sign In to Play')
 }
 const changePasswordSuccess = function (data) {
   console.log(data)
-  $('#message2').text('Password Reset Successfully!')
+  $('#change-password').hide()
+  $('#passwordMessage').text('Password Reset Successfully!')
 }
 const changePasswordFailure = function (error) {
   console.log(error)
-  $('#message2').text('Something went wrong, try again!')
+  $('#passwordMessage').text('Something went wrong, try again!')
 }
 const signOutSuccess = function (data) {
   console.log(data)
@@ -55,8 +56,8 @@ const signOutSuccess = function (data) {
   $('#play-again').hide()
   $('.grid').hide()
   $('#get-games').hide()
-  $('#message3').text('')
-  gameEvents.clearBoard()
+  $('#message3').hide()
+  $('#start-game').hide()
 }
 const signOutFailure = function (error) {
   console.log(error)
@@ -64,7 +65,7 @@ const signOutFailure = function (error) {
 }
 const getGamesSuccess = function (data) {
   store.games = data.games
-  console.log(store.games)
+  console.log('Number of games is ', store.games)
   $('#message3').text('You have played ' + store.games.length + ' games!')
 }
 const getGamesFailure = function (error) {
