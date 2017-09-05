@@ -43,13 +43,6 @@ const onGetGames = function (event) {
     .then(ui.getGamesSuccess)
     .catch(ui.getGamesFailure)
 }
-const onGetGame = function (event) {
-  event.preventDefault()
-  const data = getFormFields(this)
-  api.getGame(data)
-    .then(ui.getGameSuccess)
-    .catch(ui.getGameFailure)
-}
 
 module.exports = {
   onSignUp,
@@ -57,6 +50,5 @@ module.exports = {
   onChangePassword,
   onSignOut,
   onStartGame,
-  onGetGames,
-  onGetGame
+  onGetGames
 }

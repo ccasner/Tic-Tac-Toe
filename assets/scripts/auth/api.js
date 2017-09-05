@@ -57,23 +57,13 @@ const updateGame = function (index, value, over) {
 }
 const getGames = function () {
   return $.ajax({
-    url: config.apiOrigin + '/games',  // + '[?over=]',
+    url: config.apiOrigin + '/games?over=true',
     method: 'GET',
     headers: {
       Authorization: 'Token token=' + store.user.token
     }
   })
 }
-// const getGame = function (data) {
-//   return $.ajax({
-//     url: config.apiOrigin + '/games/' + store.game.id,
-//     method: 'GET',
-//     headers: {
-//       Authorization: 'Token token=' + store.user.token
-//     }
-//   })
-// }
-
 const signOut = function () {
   return $.ajax({
     url: config.apiOrigin + '/sign-out/' + store.user.id,

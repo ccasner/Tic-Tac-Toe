@@ -69,6 +69,7 @@ const checkMatch = function (a, b, c) {
   }
   if (winner !== '' || count === 8) {
     store.game.over = true
+    $('#play-again').show()
   }
   over = true
   console.log(store.game)
@@ -93,6 +94,7 @@ const clearBoard = function () {
   winner = ''
   $('.grid').find('.element').text('')
   $('#message').text('')
+  $('#play-again').hide()
   over = false
 }
 
@@ -104,5 +106,6 @@ const newGame = function (event) {
 module.exports = {
   userMove,
   checkForWinner,
-  newGame
+  newGame,
+  clearBoard
 }

@@ -10,14 +10,6 @@ body {
   color: $font-color;
 }
 
-// .box {
-//   border: 1px solid $black;
-//   height: 70px;
-//   width: 70px;
-// }
-// p {
-//   color: red;
-// }
 .element {
   float: left;
   width: 100px;
@@ -26,4 +18,25 @@ body {
 }
 .row {
   clear: left;
+}
+#change-password {
+  display: none;
+}
+#sign-out {
+  display: none;
+}
+#get-games {
+  display: none;
+}
+#play-again {
+  display: none;
+}
+#start-game {
+  display: none;
+}
+.grid {
+  display: none;
+}
+#message #message3 {
+  display: none;
 }
