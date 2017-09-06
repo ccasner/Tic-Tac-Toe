@@ -11,5 +11,7 @@
 - Add sign in option for multiplayer use.
 
 [User Stories] https://imgur.com/FH56CoC
+
 [Wireframe] https://imgur.com/N1whIdz
+
 [Game Logic] https://imgur.com/HSAJnyG
