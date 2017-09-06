@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <title>Tic-Tac-Toe</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+
+      <!-- Do not add `link` tags-->
+      <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+      <link href="https://fonts.googleapis.com/css?family=Sacramento" rel="stylesheet">
+      <!-- Do not add `script` tags-->
+      <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+      <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+    </head>
+    <body>
+      <h1>Tic-Tac-Toe</h1>
+      <p id="message2"></p>
+      <form id="sign-in">
+        <fieldset>
+          <input type="text" name="credentials[email]" placeholder="Enter Email">
+          <input type="password" name="credentials[password]" placeholder="Enter Password">
+          <input type="submit" class="button" name="submit" value="Sign in!">
+        </fieldset>
+      </form>
+      <form id="sign-out">
+          <fieldset>
+            <input type="submit" name="submit" value="Sign Out!">
+          </fieldset>
+        </form>
+      <form id="sign-up">
+        <fieldset>
+          <h2>New User? Sign up!</h2>
+          <input type="text" name="credentials[email]" placeholder="Enter Username">
+          <input type="password" name="credentials[password]" placeholder="Enter Password">
+          <input type="password" name="credentials[password_confirmation]" placeholder="Re-Enter Password">
+          <input type="submit" class="button" name="submit" value="Sign up!">
+        </fieldset>
+      </form>
+      <form id="get-games">
+        <input type="submit" name="submit" value="View Stats!">
+      </form>
+      <p id="message3"></p>
+      <form id="start-game">
+        <input type="submit" id="start" name="submit" value="Start Game!">
+      </form>
+    <div class="container-fluid gameBoard">
+      <div class="grid">
+        <div class="row">
+          <div class="element c1" id="0"></div>
+          <div class="element c2" id="1"></div>
+          <div class="element c3" id="2"></div>
+        </div>
+        <div class="row middle-row">
+          <div class="element c1" id="3"></div>
+          <div class="element c2" id="4"></div>
+          <div class="element c3" id="5"></div>
+        </div>
+        <div class="row">
+          <div class="element c1" id="6"></div>
+          <div class="element c2" id="7"></div>
+          <div class="element c3" id="8"></div>
+        </div>
+      </div>
+    </div>
+    <p id="message"></p>
+    <form id="play-again">
+      <input type="submit" id="play" name="submit" value="Play again!">
+    </form>
+    <fieldset>
+      <form id="change-password">
+        <h3>Change Password?</h3>
+        <input type="password" name="passwords[old]" placeholder="Enter Old Password">
+        <input type="password" name="passwords[new]" placeholder="Enter New Password">
+        <input type="submit" class="button" name="submit" value="Confirm">
+      </form>
+      <p id="passwordMessage"></p>
+    </fieldset>
+
+</body>
+
+</html>
