@@ -2,7 +2,7 @@
 const store = require('../store')
 
 const signUpSuccess = function (data) {
-  $('#message2').text('Sign Up Successful!')
+  $('#message2').text('Sign Up Successful!').show()
   $('#sign-up').hide()
 }
 const signUpFailure = function () {
@@ -42,6 +42,8 @@ const changePasswordFailure = function () {
 const signOutSuccess = function () {
   store.user = null
   $('#sign-in').show()
+  $('#sign-in').trigger('reset')
+  $('#sign-up').trigger('reset')
   $('#sign-up').show()
   $('#sign-out').hide()
   $('#change-password').hide()
