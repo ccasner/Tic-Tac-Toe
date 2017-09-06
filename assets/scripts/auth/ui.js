@@ -26,6 +26,7 @@ const newGameSuccess = function (data) {
   store.game = data.game
   $('#start-game').hide()
   $('.grid').show()
+  $('#message').text('Player X starts')
   $('#message3').hide()
 }
 const newGameFailure = function () {

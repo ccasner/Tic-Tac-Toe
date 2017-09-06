@@ -31,10 +31,12 @@ const userMove = function () {
     $('#message').text('Play Again?')
   } else if ($(this).text() === '') {
     if (count % 2 === 0) {
+      $('#message').text('Turn: O')
       $(this).text('X')
       value = 'X'
       gameBoard[index] = value
     } else if ($(this).text() === '') {
+      $('#message').text('Turn: X')
       $(this).text('O')
       value = 'O'
       gameBoard[index] = value
