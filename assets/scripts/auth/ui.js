@@ -35,9 +35,11 @@ const newGameFailure = function () {
 const changePasswordSuccess = function (data) {
   $('#change-password').hide()
   $('#passwordMessage').text('Password Reset Successfully!')
+  $('#passwordMessage').delay(1000).fadeOut('slow')
 }
 const changePasswordFailure = function () {
   $('#passwordMessage').text('Something went wrong, try again!')
+  $('#passwordMessage').delay(1000).fadeOut('slow')
 }
 const signOutSuccess = function () {
   store.user = null
