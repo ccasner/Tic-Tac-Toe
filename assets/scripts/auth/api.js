@@ -28,7 +28,6 @@ const changePassword = function (data) {
   })
 }
 const startNewGame = function () {
-  console.log('after')
   return $.ajax({
     url: config.apiOrigin + '/games',
     method: 'POST',
