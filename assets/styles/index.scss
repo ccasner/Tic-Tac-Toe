@@ -20,7 +20,7 @@ fieldset {
 }
 .element {
   font-size: 50px;
-  padding-top: 18px;
+  padding-top: 20px;
   text-align: center;
   float: left;
   width: 100px;
@@ -47,7 +47,6 @@ fieldset {
   margin: 0 auto;
   padding: 0;
 }
-
 #change-password {
   display: none;
   font-family: 'Sacramento', cursive;
@@ -55,11 +54,14 @@ fieldset {
 #sign-out {
   float: right;
   display: none;
+  margin-right: 20px;
   font-family: 'Sacramento', cursive;
 }
 #get-games {
   display: none;
   float: left;
+  margin-left: 20px;
+  margin-right: 5px;
   text-align: center;
   font-family: 'Sacramento', cursive;
 }
@@ -108,6 +110,7 @@ fieldset {
 input {
   font-size: 17px;
   padding-left: 5px;
+  padding-top: 5px;
   border: 1px solid $black;
   border-radius: 15px;
   box-shadow: 3px 4px 0 0;

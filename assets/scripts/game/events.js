@@ -42,12 +42,6 @@ const userMove = function () {
     store.game.cells = gameBoard
     checkForWinner()
     api.updateGame(index, value, over)
-    console.log(index)
-    console.log(value)
-    console.log(over)
-    console.log(count)
-    console.log(gameBoard)
-    console.log(store.game)
     return ++count
   }
 }
@@ -75,7 +69,6 @@ const checkMatch = function (a, b, c) {
     store.game.over = true
   }
   over = true
-  console.log(store.game)
   return winner
 }
 
@@ -99,16 +92,14 @@ const clearBoard = function () {
   $('#message').text('')
   $('#play-again').hide()
   over = false
-  // store.game.over = false
-  console.log(('before'))
-  api.startNewGame()
-    .then(ui.newGameSuccess)
-    .catch(ui.newGameFailure)
 }
 
 const newGame = function (event) {
   event.preventDefault()
   clearBoard()
+  api.startNewGame()
+    .then(ui.newGameSuccess)
+    .catch(ui.newGameFailure)
 }
 
 module.exports = {
